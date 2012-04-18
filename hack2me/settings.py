@@ -119,7 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hack2me',
-    'models',
+    'models'
     
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
