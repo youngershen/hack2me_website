@@ -15,19 +15,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# location index methods
+
 import os
-import sys
-sys.path.insert(0, os.path.abspath('.'))
 import web
+from jinja2 import Environment, PackageLoader
+import app
+import main
 
-urls = (
-        '/','app.index.index'
-        )
+templates_dir  = '../templates'
+jinja_env = Environment(loader=PackageLoader('app', templates_dir))
+jinja_env.auto_reload = True
+host_addr = web.ctx.protocol + '://' + web.ctx.host
 
+class index:
+    def GET(self):
+        
+        template = jinja_env.get_template('index.html')
+        return template.render(host_addr = host_addr)
 
-def main():
-    app = web.application(urls, globals())
-    app.run()
+    def POST(self):
+        print "hello world from post"
 
-if __name__ == '__main__':
-    main()
