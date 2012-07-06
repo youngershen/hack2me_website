@@ -25,8 +25,8 @@ urls = (
         )
 
 
+app = web.application(urls, globals())
 def main():
-    app = web.application(urls, globals())
     app.run()
 
 if __name__ == '__main__':
