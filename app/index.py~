@@ -22,18 +22,16 @@ import web
 from jinja2 import Environment, PackageLoader
 import app
 import main
-
-templates_dir  = '../templates'
-jinja_env = Environment(loader=PackageLoader('app', templates_dir))
-jinja_env.auto_reload = True
-host_addr = web.ctx.protocol + '://' + web.ctx.host
+from utils.tools import jinja
+from utils.tools import host_addr
 
 class index:
     def GET(self):
-        
-        template = jinja_env.get_template('index.html')
-        return template.render()
+        template = jinja.get_template('index.html')
+        return template.render(host_addr = host_addr)
 
     def POST(self):
-        print "hello world from post"
-
+        return 'test'
+class Main:
+    def GET(self):
+        return test

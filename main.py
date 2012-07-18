@@ -21,7 +21,9 @@ sys.path.insert(0, os.path.abspath('.'))
 import web
 
 urls = (
-        '/','app.index.index'
+        '/','app.index.index',
+        '/main','app.index.Main'
+        
         )
 
 
